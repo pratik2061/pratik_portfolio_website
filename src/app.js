@@ -17,3 +17,12 @@ s_media.forEach((v,i)=>{
     })
 })
   
+const menu = document.querySelector('.menu')
+menu.addEventListener('click',()=>{
+    menu.classList.toggle('rotate-180')
+    const info = document.querySelector('.info')
+    info.classList.toggle("hidden")
+    const menu_section = document.querySelector('.menu_section')
+    menu_section.classList.toggle('scale-y-100')
+    menu_section.classList.toggle('h-[350px]')
+})
