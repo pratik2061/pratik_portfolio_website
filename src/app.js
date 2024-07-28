@@ -72,7 +72,7 @@ const innerhtml_data = (index)=>{
       data.forEach((v,i)=>{
         innerHTML += `
             <div class=" bg-[#D6BD98] rounded-[10px] w-[100%] mx-auto font-[static] info_value absolute " id="${info_href[index].data}" >
-            <span class="block h-[40px] m-[20px] px-[20px] flex  items-center text-[13px] font-[100] tracking-[1px] "><h1 class="">${data[index].heading}</h1></span>
+            <span class="block  h-[40px] m-[20px] px-[20px] flex  items-center text-[13px] font-[100] tracking-[1px] "><h1 class="">${data[index].heading}</h1></span>
             <div class="flex mx-[10px] mt-[30px]" >
                <p class="block text-[28px] font-semibold px-[50px] tracking-[2px]">${data[index].sub_heading}</p>
             </div>
@@ -86,17 +86,54 @@ const innerhtml_data = (index)=>{
         info_data_div.innerHTML = innerHTML
     }
 
+//     <div>
+//     <div class=" flex py-[10px] px-[20px] "><h1 class="block text-[20px]  font-[370]">About</h1></div>
+//     <div class="flex py-[10px] px-[45px] mt-[10px]"><h2 class="text-[23px] font-bold tracking-[2px]">WHO AM I ?</h2></div>
+//     <div class=" text-left text-[20px] px-[35px] mt-[15px] font-[400] ">
+//       <p class="pb-[10px]">Hi! My name is Pratik Sharma. I am 20 yrs old computer engineering student with a clear vision of becoming a leading software engineer Soon. My keen interest in software development drives me to continually enhance my technical skills.</p>
+//       <p class="pb-[10px]">Currently, I am working on my own research to improve my skills by doing some projects and tasks.</p>
+//     </div>
+//   </div>
+
+const sm_data_section = document.querySelector('.sm_data_section')
+const sm_innerhtml_data = (index)=>{
+    let innerHTML = ''
+    data.forEach((v,i)=>{
+                innerHTML += `
+                
+                 <div class="bg-[#1A3636] rounded-[10px] absolute h-[550px]">
+                 <div class=" flex py-[10px] px-[20px] "><h1 class="block text-[20px]  font-[370]">${data[index].heading}</h1></div>
+                 <div class="flex py-[10px] px-[45px] mt-[10px]"><h2 class="text-[23px] font-bold tracking-[2px]">${data[index].sub_heading}</h2></div>
+                 <div class=" text-left text-[20px] px-[35px] mt-[15px] font-[400] ">
+                   <p class="pb-[10px]">${data[index].paragraph1}</p>
+                   <p class="pb-[10px]">${data[index].paragraph2}</p>
+                 </div>
+                 </div>
+        `
+    })
+    sm_data_section.innerHTML = innerHTML
+}
+
 const s_media = document.querySelectorAll('.s_media')
 s_media.forEach((v,i)=>{
     v.addEventListener('click',()=>{
      v.href = `${href_data[i].data}`
     })
 })
-  
+
+const back_btn = document.querySelector('.back')
+const back = ()=>{
+    sm_data_section.classList.remove('scale-y-100')   
+     sm_data_section.classList.add('scale-y-0');
+     back_btn.classList.add('hidden')
+     menu.classList.remove('hidden')
+}
+
 const menu = document.querySelector('.menu')
 menu.addEventListener('click',()=>{
     menu.classList.toggle('rotate-180')
     const info = document.querySelector('.info')
+    info.classList.toggle("lg:block")
     info.classList.toggle("hidden")
     const menu_section = document.querySelector('.menu_section')
     menu_section.classList.toggle('scale-y-100')
@@ -116,8 +153,18 @@ data_lg.forEach((v,i)=>{
                   info_data_div.classList.add('lg:block')
                   innerhtml_data(i)
                   })
-
-
      })
 
-    
+     const data_sm = document.querySelectorAll('.data_sm')
+      data_sm.forEach((v,i)=>{
+           v.addEventListener('click',()=>{
+                       sm_innerhtml_data(i)
+                       menu.classList.add('hidden')
+                       back_btn.classList.remove('hidden')
+                       sm_data_section.classList.remove('scale-y-0')
+                       sm_data_section.classList.add('scale-y-100')
+                  })
+     })
+    back_btn.addEventListener('click',()=>{
+       back()
+    })
