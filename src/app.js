@@ -120,7 +120,6 @@ s_media.forEach((v,i)=>{
      v.href = `${href_data[i].data}`
     })
 })
-
 const back_btn = document.querySelector('.back')
 const back = ()=>{
     sm_data_section.classList.remove('scale-y-100')   
