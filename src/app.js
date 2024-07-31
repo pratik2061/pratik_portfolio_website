@@ -125,7 +125,7 @@ const back = ()=>{
     sm_data_section.classList.remove('scale-y-100')   
      sm_data_section.classList.add('scale-y-0');
      back_btn.classList.add('hidden')
-     menu.classList.remove('hiddengggg')
+     menu.classList.remove('hidden')
 }
 
 const menu = document.querySelector('.menu')
