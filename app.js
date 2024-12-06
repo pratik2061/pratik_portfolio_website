@@ -61,7 +61,7 @@ const data =[   {
         id:4,
         heading:'GET IN TOUCH',
         sub_heading:'CONTACT',
-        paragraph1 : "INFO : prayiksharma23@gmail.com <br><br> ADDRESS : Kalikanagar-10,Butwal,Nepal",
+        paragraph1 : "INFO : pratiksharma2061@gmail.com <br><br> ADDRESS : Kalikanagar-10,Butwal,Nepal",
         paragraph2 : 'PHONE : +977 9840697481'
     } 
 ]
